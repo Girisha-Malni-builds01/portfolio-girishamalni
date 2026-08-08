@@ -1,5 +1,5 @@
 export const personalInfo = {
-  name: "Girisha Malni N",
+  name: "Girisha Malni Nagendran",
   title: "Computer Science Engineer | AI Systems, ML & Scalable Computing",
   tagline: "Exploring RAG Architecture, Quantum Machine Learning & ESG Intelligence",
   email: "girishamalnin@gmail.com",
@@ -39,9 +39,9 @@ export const personalInfo = {
   ],
 
   images: {
-    headshot: "/images/girisha-blue.jpg",
+    headshot: "/images/girisha-travel.jpg", // Main coloured picture as requested!
     artistic: "/images/girisha-art.jpg",
-    outdoor: "/images/girisha-travel.jpg"
+    bluePortrait: "/images/girisha-blue.jpg"
   }
 };
 
@@ -51,7 +51,7 @@ export const experiences = [
     company: "DitchCarbon",
     location: "Berlin, Germany",
     period: "Dec 2025 – Jan 2026",
-    badge: "International Remote",
+    badge: "International Remote Internship",
     highlights: [
       "Built an advanced Retrieval-Augmented Generation (RAG) pipeline using LlamaIndex for chunking unstructured PDF documents.",
       "Created vector embeddings using OpenAI text-embedding-3-small for high-precision semantic similarity retrieval.",
@@ -64,9 +64,9 @@ export const experiences = [
     company: "Carleton University",
     location: "Ottawa, Canada",
     period: "Feb 2025 – Jul 2025",
-    badge: "Research Internship",
+    badge: "International Research Internship",
     highlights: [
-      "Developed a end-to-end ESG analytics pipeline utilizing RAG architectures and Qdrant vector database.",
+      "Developed an end-to-end ESG analytics pipeline utilizing RAG architectures and Qdrant vector database.",
       "Implemented discourse graphs and HyperRAG algorithms for large-scale corporate sustainability report analysis.",
       "Optimized document retrieval latency and contextual accuracy across complex multi-page financial disclosures."
     ],
@@ -77,7 +77,7 @@ export const experiences = [
     company: "ACM India, JUIT",
     location: "Himachal Pradesh, India",
     period: "Jun 2025",
-    badge: "ACM Cohort",
+    badge: "ACM Cohort Internship",
     highlights: [
       "Participated in intensive advanced cohorts organized by ACM India Chapter at Jaypee University of Information Technology.",
       "Focused on theoretical computer science, quantum algorithms, variational quantum circuits, and emerging computing architectures."
@@ -89,7 +89,7 @@ export const experiences = [
     company: "Chakril Apps",
     location: "Tamil Nadu, India",
     period: "Apr 2025 – May 2025",
-    badge: "Industry Internship",
+    badge: "Industry AI Internship",
     highlights: [
       "Contributed to digital marketing workflow automation by engineering autonomous Python scripts.",
       "Orchestrated multi-agent crews using CrewAI for search engine optimization (SEO) automation and content strategy generation."
@@ -125,7 +125,7 @@ export const researchPapers = [
     location: "Vienna, Austria",
     status: "Published",
     type: "Conference",
-    link: "https://tinyurl.com/googlescholar-girisha",
+    link: "https://ieeexplore.ieee.org/abstract/document/10986878",
     abstract: "Proposes a novel multimodal Retrieval-Augmented Generation (RAG) framework tailored for parsing heterogenous sustainability reports containing tabular, textual, and visual emissions charts with high fidelity.",
     tags: ["Multimodal RAG", "ESG Intelligence", "IEEE Conference", "LLMs"]
   },
@@ -136,7 +136,7 @@ export const researchPapers = [
     location: "Karnataka, India",
     status: "Published",
     type: "Conference",
-    link: "https://tinyurl.com/googlescholar-girisha",
+    link: "https://ieeexplore.ieee.org/abstract/document/11390981/",
     abstract: "Introduces ECOSAUR, an AI-driven framework that enables consumers and institutions to make data-backed eco-friendly purchasing decisions by scoring lifecycle carbon emissions.",
     tags: ["Sustainability", "AI Decision Support", "IEEE AIDE"]
   },
