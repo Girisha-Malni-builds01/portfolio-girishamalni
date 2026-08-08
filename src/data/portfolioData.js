@@ -14,19 +14,20 @@ export const personalInfo = {
   
   traits: [
     "Fast Learner",
-    "Outgoing",
     "Collaborative",
     "Passionate Learner",
     "Storyteller",
     "Team Player",
-    "Traveller"
+    "Traveller",
+    "Researcher"
   ],
 
   passions: [
-    { title: "Carnatic Music", icon: "Music", desc: "Connoisseur of classical Indian ragas, Veena melodies, and rhythm structure." },
-    { title: "Tea Connoisseur", icon: "Coffee", desc: "Savoring artisanal blends, loose-leaf teas, and brewing rituals." },
-    { title: "Travel & Wanderlust", icon: "Compass", desc: "Exploring cultural heritage, serene landscapes, and hill towns." },
-    { title: "Photography", icon: "Camera", desc: "Capturing light, moments, nature, and architectural stories." }
+    { title: "Carnatic Music", icon: "Music" },
+    { title: "Tea Connoisseur", icon: "Coffee" },
+    { title: "Travel & Wanderlust", icon: "Compass" },
+    { title: "Photography", icon: "Camera" },
+    { title: "Storytelling & Writing", icon: "BookOpen" }
   ],
 
   languages: [
@@ -39,7 +40,7 @@ export const personalInfo = {
   ],
 
   images: {
-    headshot: "/images/girisha-travel.jpg", // Main coloured picture as requested!
+    headshot: "/images/girisha-travel.jpg", // Main coloured picture
     artistic: "/images/girisha-art.jpg",
     bluePortrait: "/images/girisha-blue.jpg"
   }
@@ -147,7 +148,7 @@ export const researchPapers = [
     location: "The LNMIIT, Rajasthan, India",
     status: "Presented",
     type: "Conference",
-    link: "https://tinyurl.com/googlescholar-girisha",
+    link: null,
     abstract: "Presents a computer vision model that analyzes spatial ownership boundaries and intent breakdowns in complex multi-object human interaction scenes.",
     tags: ["Computer Vision", "Intent Detection", "Springer", "Scene Analysis"]
   },
@@ -158,7 +159,7 @@ export const researchPapers = [
     location: "University of Trento, Italy",
     status: "Accepted",
     type: "Conference",
-    link: "https://tinyurl.com/googlescholar-girisha",
+    link: null,
     abstract: "Leverages Quantum Fisher Information Matrix (QFIM) to guide prototype learning in variational quantum circuits, achieving explainable classification on high-dimensional quantum states.",
     tags: ["Quantum ML", "Qiskit", "Explainable AI", "QUANCOM", "Springer"]
   },
@@ -169,7 +170,7 @@ export const researchPapers = [
     location: "International Journal",
     status: "Under Review",
     type: "Journal",
-    link: "https://tinyurl.com/googlescholar-girisha",
+    link: null,
     abstract: "Presents a reasoning-centric retrieval paradigm that optimizes knowledge residency and vector lookup strategies for large-scale enterprise ESG intelligence applications.",
     tags: ["Elsevier EAAI", "Journal Paper", "Knowledge Residency", "RAG Optimization"]
   }
@@ -249,43 +250,43 @@ export const honorsAndHackathons = [
 export const mediumBlogs = [
   {
     id: "blog-1",
-    title: "RAG & Knowledge Graphs: Building Next-Gen ESG Analytics Systems",
-    snippet: "How combining vector embeddings with graph discourse networks eliminates hallucinations in corporate sustainability audits.",
+    title: "White Nights and Brief Connections: The Loneliness That Remains When the Closest People Become Strangers Again",
+    snippet: "In ILLUMINATION by Girisha Malni N",
     url: "https://medium.com/@23csec07.ngirishamalni",
-    date: "Aug 2025",
-    readTime: "5 min read",
-    thumbnail: "/images/blog_rag.png",
-    tags: ["RAG", "ESG", "AI Engineering", "Vector DB"]
+    date: "Jun 24",
+    readTime: "8 min read",
+    thumbnail: "/images/blog_carnatic.png",
+    tags: ["ILLUMINATION", "Essay", "Relationships", "Writing"]
   },
   {
     id: "blog-2",
-    title: "Harmonics & Quantum Bits: Where Carnatic Music Meets Quantum Computing",
-    snippet: "Exploring the fascinating mathematical parallels between Indian Carnatic Ragas (Swara intervals) and Quantum state superposition.",
+    title: "Oaths, Ideas and Inventions: India’s Journey to True Freedom",
+    snippet: "Written by Girisha Malni N",
     url: "https://medium.com/@23csec07.ngirishamalni",
-    date: "Jul 2025",
-    readTime: "6 min read",
-    thumbnail: "/images/blog_carnatic.png",
-    tags: ["Carnatic Music", "Quantum ML", "Storytelling", "Math"]
+    date: "Aug 15, 2025",
+    readTime: "5 min read",
+    thumbnail: "/images/tea_vibes.png",
+    tags: ["History", "Invention", "Freedom", "Essays"]
   },
   {
     id: "blog-3",
-    title: "Sip, Code, Repeat: The Fine Art of Tea & Engineering Flow State",
-    snippet: "Reflections on loose-leaf tea rituals, deep work focus, and lessons learned from undergraduate AI research.",
+    title: "The Existentialism of June: A Month Between Motion and Meaning",
+    snippet: "Written by Girisha Malni N",
     url: "https://medium.com/@23csec07.ngirishamalni",
-    date: "Jun 2025",
+    date: "Jun 1",
     readTime: "4 min read",
-    thumbnail: "/images/tea_vibes.png",
-    tags: ["Tea", "Mindset", "Creative Writing", "Flow State"]
+    thumbnail: "/images/travel_landscape.png",
+    tags: ["Mindset", "Reflections", "Existentialism", "June"]
   },
   {
     id: "blog-4",
-    title: "Wanderlust & Vision: What Travelling Teaches a Computer Scientist",
-    snippet: "From the serene hills of Himachal to research labs in Ottawa — lessons on adaptability, teamwork, and storytelling.",
+    title: "The Art of Zoning Out: What Travelling Taught Me About Staring at Stillness",
+    snippet: "Written by Girisha Malni N",
     url: "https://medium.com/@23csec07.ngirishamalni",
-    date: "May 2025",
+    date: "4d ago",
     readTime: "5 min read",
-    thumbnail: "/images/travel_landscape.png",
-    tags: ["Travel", "Photography", "Leadership", "Life"]
+    thumbnail: "/images/blog_rag.png",
+    tags: ["Travel", "Stillness", "Mindfulness", "Stories"]
   }
 ];
 

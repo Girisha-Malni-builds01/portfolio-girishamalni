@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   User, 
   Briefcase, 
@@ -9,32 +9,37 @@ import {
   Globe, 
   Mail, 
   ExternalLink, 
-  MapPin, 
-  Award, 
-  CheckCircle2, 
   Music, 
   Coffee, 
   Compass, 
   Camera, 
-  Heart,
   ChevronRight,
-  X,
-  FileCheck
+  ChevronLeft,
+  ChevronRightIcon
 } from 'lucide-react';
-import { personalInfo, experiences, researchPapers, projects, mediumBlogs, honorsAndHackathons, education } from './data/portfolioData';
+import { personalInfo, experiences, researchPapers, projects, mediumBlogs, honorsAndHackathons } from './data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './components/SocialIcons';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('about');
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const photoList = [
-    { src: personalInfo.images.headshot, label: "Outdoor Travel (Coloured)", desc: "Sitting near lakeside, South India" },
-    { src: personalInfo.images.bluePortrait, label: "Blue Halftone Portrait", desc: "Professional AI Systems Engineer" },
-    { src: personalInfo.images.artistic, label: "Orange Halftone Portrait", desc: "Storyteller & Creator" }
+  // Automatic Sliding Profile Photos (Slideshow every 3.5 seconds)
+  const photoSlides = [
+    { src: personalInfo.images.headshot, label: "Outdoor Travel (Coloured)" },
+    { src: personalInfo.images.bluePortrait, label: "Blue Halftone Portrait" },
+    { src: personalInfo.images.artistic, label: "Orange Halftone Portrait" }
   ];
 
-  // Pure tech skills (C/C++ removed, non-tech removed)
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % photoSlides.length);
+    }, 3500);
+    return () => clearInterval(slideTimer);
+  }, [photoSlides.length]);
+
+  // Clean Technical Stack (Airflow, Kafka, JavaScript, C/C++ removed as requested)
   const techSkills = [
     { name: 'PyTorch', cat: 'AI / ML / DL', icon: '🔥' },
     { name: 'Transformers', cat: 'AI / ML / DL', icon: '🤗' },
@@ -56,15 +61,21 @@ export default function App() {
     { name: 'Python', cat: 'Languages', icon: '🐍' },
     { name: 'Java', cat: 'Languages', icon: '☕' },
     { name: 'SQL', cat: 'Languages', icon: '🗄️' },
-    { name: 'JavaScript', cat: 'Languages', icon: '⚡' },
 
     { name: 'MongoDB', cat: 'Databases & Tools', icon: '🍃' },
     { name: 'MySQL', cat: 'Databases & Tools', icon: '🐬' },
     { name: 'Git & GitHub', cat: 'Databases & Tools', icon: '🐙' },
     { name: 'MATLAB', cat: 'Databases & Tools', icon: '📐' },
-    { name: 'Apache Airflow', cat: 'Databases & Tools', icon: '🌪️' },
-    { name: 'Apache Kafka', cat: 'Databases & Tools', icon: '📡' },
     { name: 'Streamlit', cat: 'Databases & Tools', icon: '🎈' }
+  ];
+
+  // Non-Tech Passions (No descriptions as requested, just simple chips)
+  const nonTechPassions = [
+    { title: "Carnatic Music", icon: "🎵" },
+    { title: "Tea Connoisseur", icon: "☕" },
+    { title: "Travel & Wanderlust", icon: "✈️" },
+    { title: "Photography", icon: "📷" },
+    { title: "Storytelling & Writing", icon: "✍️" }
   ];
 
   const topNavTabs = [
@@ -79,15 +90,15 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#fafafa] text-slate-800 font-sans antialiased selection:bg-slate-900 selection:text-white pb-16">
       
-      {/* TOP TAB NAVIGATION BAR (As Requested) */}
+      {/* TOP TAB NAVIGATION BAR */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
           
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('about')}>
             <img 
-              src={personalInfo.images.headshot} 
+              src={photoSlides[currentSlideIndex].src} 
               alt="Girisha Malni Nagendran" 
-              className="w-9 h-9 rounded-full object-cover border border-slate-300 shadow-2xs"
+              className="w-9 h-9 rounded-full object-cover border border-slate-300 transition-all duration-500"
             />
             <span className="font-extrabold text-sm text-slate-900 tracking-tight">
               Girisha Malni Nagendran
@@ -124,45 +135,47 @@ export default function App() {
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
           
-          {/* LEFT SIDEBAR (Sentence Case Links + Icons) */}
+          {/* LEFT SIDEBAR */}
           <div className="md:col-span-4 space-y-6">
             
-            {/* Name & Primary Profile Picture (Coloured Outdoor Photo) */}
+            {/* Name & AUTOMATIC SLIDING PROFILE PHOTOS */}
             <div className="space-y-3">
               <h1 className="text-xl font-extrabold text-slate-900 tracking-tight">
                 Girisha Malni Nagendran
               </h1>
               
-              <div className="relative group">
-                <img 
-                  src={personalInfo.images.headshot} 
-                  alt="Girisha Malni Nagendran" 
-                  className="w-full aspect-[4/5] max-w-[220px] rounded-xl object-cover border border-slate-200 shadow-sm"
-                />
-                <span className="text-[10px] font-bold text-slate-500 block mt-1">
-                  📸 Main Profile (Coloured Photo)
-                </span>
-              </div>
-            </div>
-
-            {/* Other 2 Photos Gallery Switcher */}
-            <div className="space-y-1.5 pt-1">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">All Profile Photos</span>
-              <div className="flex gap-2">
-                {photoList.map((photo, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setSelectedPhoto(photo)}
-                    className="w-12 h-14 rounded-lg overflow-hidden border border-slate-200 hover:border-slate-400 transition-all shadow-2xs group relative"
-                    title={photo.label}
-                  >
-                    <img src={photo.src} alt={photo.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
-                  </button>
+              {/* Automatic Sliding Carousel Frame */}
+              <div className="relative w-full aspect-[4/5] max-w-[220px] rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 group">
+                {photoSlides.map((slide, idx) => (
+                  <img
+                    key={idx}
+                    src={slide.src}
+                    alt={slide.label}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                      idx === currentSlideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                    }`}
+                  />
                 ))}
+
+                {/* Carousel Controls & Indicators */}
+                <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center space-x-1.5">
+                  {photoSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentSlideIndex(i)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        i === currentSlideIndex ? 'w-5 bg-white shadow' : 'w-1.5 bg-white/60'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
+              <span className="text-[10px] font-medium text-slate-400 block">
+                🔄 Sliding Photo Showcase ({currentSlideIndex + 1}/3)
+              </span>
             </div>
 
-            {/* Sentence Case Text Links WITH ICONS (As Requested) */}
+            {/* Sentence Case Text Links WITH ICONS */}
             <div className="space-y-2 text-xs font-semibold text-slate-700 pt-2 border-t border-slate-200/80">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Connect & Media</span>
               
@@ -253,7 +266,7 @@ export default function App() {
           {/* RIGHT COLUMN: TAB-BASED CONTENT AREA */}
           <div className="md:col-span-8 space-y-8">
             
-            {/* TAB 1: ABOUT (Hero Bio with Exact Text requested) */}
+            {/* TAB 1: ABOUT (Hero Bio with Trait Badges, Outgoing removed, Star emoji removed, Researcher added) */}
             {activeTab === 'about' && (
               <div className="space-y-6 animate-fadeIn">
                 <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed bg-white rounded-2xl border border-slate-200/90 p-6 shadow-2xs">
@@ -278,13 +291,14 @@ export default function App() {
                     </span>
                   </div>
 
+                  {/* Clean Trait Chips: Outgoing removed, star emoji removed, Researcher added! */}
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {personalInfo.traits.map((trait, idx) => (
                       <span 
                         key={idx}
-                        className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200"
+                        className="px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200"
                       >
-                        ✨ {trait}
+                        {trait}
                       </span>
                     ))}
                   </div>
@@ -318,7 +332,7 @@ export default function App() {
                       </span>
                       <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
                     </div>
-                    <p className="text-xs text-slate-500">IEEE FLLM, IEEE AIDE, Springer QUANCOM, Elsevier EAAI.</p>
+                    <p className="text-xs text-slate-500">IEEE FLLM 2025, IEEE AIDE 2025, Springer QUANCOM, Elsevier EAAI.</p>
                   </div>
                 </div>
 
@@ -375,7 +389,7 @@ export default function App() {
               </div>
             )}
 
-            {/* TAB 3: RESEARCH PAPERS */}
+            {/* TAB 3: RESEARCH PAPERS (Paper links ONLY for available ones) */}
             {activeTab === 'research' && (
               <div className="space-y-6 animate-fadeIn">
                 <div className="flex justify-between items-center">
@@ -409,16 +423,20 @@ export default function App() {
                             {paper.title}
                           </h3>
                         </div>
-                        <a 
-                          href={paper.link} 
-                          target="_blank" 
-                          rel="noreferrer"
-                          className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold shrink-0"
-                          title="Open Publication Link"
-                        >
-                          <span>IEEE Link</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
+
+                        {/* ADD LINKS ONLY TO THOSE AVAILABLE (IEEE FLLM & IEEE AIDE) */}
+                        {paper.link && (
+                          <a 
+                            href={paper.link} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-bold shrink-0 transition-colors"
+                            title="Open IEEE Publication"
+                          >
+                            <span>IEEE Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
                       </div>
 
                       <p className="text-xs text-slate-600 leading-relaxed">
@@ -438,14 +456,14 @@ export default function App() {
               </div>
             )}
 
-            {/* TAB 4: MEDIUM STORIES */}
+            {/* TAB 4: MEDIUM STORIES (With exact titles and thumbnails matching screenshots) */}
             {activeTab === 'medium' && (
               <div className="space-y-6 animate-fadeIn">
                 <div className="flex justify-between items-center">
                   <div className="space-y-1">
                     <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
                       <BookOpen className="w-5 h-5 text-amber-600" />
-                      <span>Medium Articles & Stories</span>
+                      <span>Medium Articles & Essays</span>
                     </h2>
                     <p className="text-xs text-slate-500">Learning out loud at @23csec07.ngirishamalni.</p>
                   </div>
@@ -455,7 +473,7 @@ export default function App() {
                     rel="noreferrer" 
                     className="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-200"
                   >
-                    <span>Visit Medium Profile</span>
+                    <span>Medium Profile</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -480,7 +498,7 @@ export default function App() {
                         <div className="text-[10px] font-bold text-amber-700">
                           {blog.date} • {blog.readTime}
                         </div>
-                        <h3 className="text-xs font-bold text-slate-900 group-hover:text-amber-800 transition-colors line-clamp-2">
+                        <h3 className="text-xs font-bold text-slate-900 group-hover:text-amber-800 transition-colors line-clamp-2 leading-snug">
                           {blog.title}
                         </h3>
                         <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
@@ -540,18 +558,18 @@ export default function App() {
               </div>
             )}
 
-            {/* TAB 6: SKILLS & PASSIONS */}
+            {/* TAB 6: SKILLS & PASSIONS (Airflow, Kafka, JS removed, non-tech descriptions removed) */}
             {activeTab === 'skills' && (
               <div className="space-y-6 animate-fadeIn">
                 <div className="space-y-1">
                   <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
                     <Sparkles className="w-5 h-5 text-indigo-600" />
-                    <span>Technical Skills & Passions</span>
+                    <span>Technical Stack & Passions</span>
                   </h2>
-                  <p className="text-xs text-slate-500">Core engineering stack & cultural connoisseur interests.</p>
+                  <p className="text-xs text-slate-500">Core engineering stack & non-tech interests.</p>
                 </div>
 
-                {/* Pure Technical Skills Badges (C/C++ and Non-Tech Removed as requested) */}
+                {/* Pure Technical Stack */}
                 <div className="bg-white rounded-2xl border border-slate-200/90 p-5 space-y-3 shadow-2xs">
                   <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                     Technical Stack
@@ -569,48 +587,24 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Cultural Passions Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 space-y-1">
-                    <div className="flex items-center space-x-2 text-indigo-600 font-bold text-xs">
-                      <Music className="w-4 h-4" />
-                      <span>Carnatic Music Connoisseur</span>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Appreciating classical Indian ragas (*Kalyani, Hindolam, Charukesi, Bhairavi*), Veena harmonics, microtonal gamakas, and swara rhythm mathematics.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 space-y-1">
-                    <div className="flex items-center space-x-2 text-amber-600 font-bold text-xs">
-                      <Coffee className="w-4 h-4" />
-                      <span>Tea Connoisseur</span>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Loose-leaf tea brewing rituals, Nilgiri Orthodox black tea, Darjeeling first flush, and deep focus flow state.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 space-y-1">
-                    <div className="flex items-center space-x-2 text-emerald-600 font-bold text-xs">
-                      <Compass className="w-4 h-4" />
-                      <span>Travel & Wanderlust</span>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Exploring heritage landscapes, hill stations, and global research ecosystems from Ottawa to Berlin and Himachal.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 space-y-1">
-                    <div className="flex items-center space-x-2 text-purple-600 font-bold text-xs">
-                      <Camera className="w-4 h-4" />
-                      <span>Photography & Creative Writing</span>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Capturing lighting, perspective framing, nature, and writing poetry at the intersection of science and art.
-                    </p>
+                {/* Non-Tech Passions (Simple chips with NO descriptions as requested) */}
+                <div className="bg-white rounded-2xl border border-slate-200/90 p-5 space-y-3 shadow-2xs">
+                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    Passions & Interests
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {nonTechPassions.map((item, idx) => (
+                      <span 
+                        key={idx}
+                        className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200"
+                      >
+                        <span>{item.icon}</span>
+                        <span>{item.title}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
+
               </div>
             )}
 
@@ -619,27 +613,6 @@ export default function App() {
         </div>
 
       </main>
-
-      {/* Image Lightbox Modal for Photo Gallery */}
-      {selectedPhoto && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm animate-fadeIn">
-          <div className="relative max-w-lg w-full bg-white rounded-2xl overflow-hidden p-3 border border-slate-200 shadow-2xl">
-            <button
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 p-1.5 text-slate-600 hover:text-slate-900 rounded-full bg-white/90 shadow z-10"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            <div className="aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
-              <img src={selectedPhoto.src} alt={selectedPhoto.label} className="w-full h-full object-cover" />
-            </div>
-            <div className="p-3 space-y-0.5">
-              <h3 className="text-sm font-bold text-slate-900">{selectedPhoto.label}</h3>
-              <p className="text-xs text-slate-500">{selectedPhoto.desc}</p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* MINIMAL FOOTER */}
       <footer className="border-t border-slate-200/80 py-8 text-center text-xs text-slate-500 mt-12">
