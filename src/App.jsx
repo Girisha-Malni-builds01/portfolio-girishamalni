@@ -605,6 +605,24 @@ export default function App() {
                   </div>
                 </div>
 
+                {/* Spoken Languages Section (As Requested) */}
+                <div className="bg-white rounded-2xl border border-slate-200/90 p-5 space-y-3 shadow-2xs">
+                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    Spoken Languages
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {personalInfo.languages.map((lang, idx) => (
+                      <span 
+                        key={idx}
+                        className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-50 text-slate-800 text-xs font-semibold border border-slate-200"
+                      >
+                        <span className="font-bold text-indigo-600">{lang.name}</span>
+                        <span className="text-[11px] text-slate-400">({lang.level})</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             )}
 
