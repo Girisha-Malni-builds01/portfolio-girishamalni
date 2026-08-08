@@ -12,6 +12,7 @@ import {
   Coffee, 
   Compass, 
   Camera,
+  Heart,
   Languages,
   CheckCircle2,
   ExternalLink,
