@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Globe, ExternalLink, Award, CheckCircle, Tag, Eye, X } from 'lucide-react';
+import { FileText, Globe, ExternalLink, Award, Tag, Eye, X } from 'lucide-react';
 import { researchPapers, personalInfo } from '../data/portfolioData';
 
 export default function ResearchTab() {
@@ -17,17 +17,17 @@ export default function ResearchTab() {
     <div className="space-y-8 animate-fadeIn">
       
       {/* Header Banner */}
-      <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900 to-indigo-950/60 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div className="space-y-2">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30">
+      <div className="clean-card rounded-2xl p-6 sm:p-7 bg-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="space-y-1">
+          <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200">
             <Award className="w-3.5 h-3.5" />
             <span>Peer-Reviewed Publications & Preprints</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
             Research Contributions
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
-            Authoring papers spanning Multimodal RAG, Variational Quantum Machine Learning, and Computer Vision for Springer, IEEE, and Elsevier journals.
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
+            Papers spanning Multimodal RAG, Variational Quantum Machine Learning, and Computer Vision for Springer, IEEE, and Elsevier journals.
           </p>
         </div>
 
@@ -35,28 +35,28 @@ export default function ResearchTab() {
           href={personalInfo.scholar}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/30 transition-all hover:scale-105"
+          className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm transition-all"
         >
-          <Globe className="w-4 h-4" />
+          <Globe className="w-3.5 h-3.5" />
           <span>Google Scholar Profile</span>
-          <ExternalLink className="w-3.5 h-3.5 ml-1" />
+          <ExternalLink className="w-3.5 h-3.5" />
         </a>
       </div>
 
       {/* Tag Filters */}
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs font-bold text-slate-400 mr-2 flex items-center space-x-1">
+        <span className="text-xs font-bold text-slate-500 mr-1 flex items-center space-x-1">
           <Tag className="w-3.5 h-3.5" />
-          <span>Filter by Topic:</span>
+          <span>Filter:</span>
         </span>
         {filters.map((filter) => (
           <button
             key={filter}
             onClick={() => setSelectedFilter(filter)}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
               selectedFilter === filter
-                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                : 'bg-slate-800/80 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                ? 'bg-indigo-600 text-white shadow-sm font-bold'
+                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
             }`}
           >
             {filter}
@@ -71,30 +71,30 @@ export default function ResearchTab() {
           const isPresented = paper.status === 'Presented';
           const isAccepted = paper.status === 'Accepted';
           
-          let statusBadgeClass = "bg-amber-500/20 text-amber-300 border-amber-500/30";
-          if (isPublished) statusBadgeClass = "bg-emerald-500/20 text-emerald-300 border-emerald-500/30";
-          if (isAccepted) statusBadgeClass = "bg-blue-500/20 text-blue-300 border-blue-500/30";
-          if (isPresented) statusBadgeClass = "bg-purple-500/20 text-purple-300 border-purple-500/30";
+          let statusBadgeClass = "bg-amber-50 text-amber-700 border-amber-200";
+          if (isPublished) statusBadgeClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+          if (isAccepted) statusBadgeClass = "bg-blue-50 text-blue-700 border-blue-200";
+          if (isPresented) statusBadgeClass = "bg-purple-50 text-purple-700 border-purple-200";
 
           return (
             <div
               key={paper.id}
-              className="glass-card rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition-all space-y-4 group"
+              className="clean-card rounded-xl p-5 bg-white space-y-3 group"
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="flex flex-wrap items-start justify-between gap-2">
                 <div className="space-y-1 max-w-3xl">
                   <div className="flex items-center space-x-2">
-                    <span className={`text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full border ${statusBadgeClass}`}>
+                    <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border ${statusBadgeClass}`}>
                       [{paper.status}]
                     </span>
-                    <span className="text-xs font-semibold text-slate-400">
+                    <span className="text-xs font-semibold text-slate-500">
                       {paper.type} • {paper.location}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-100 group-hover:text-indigo-300 transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                     {paper.title}
                   </h3>
-                  <p className="text-xs font-semibold text-indigo-400">
+                  <p className="text-xs font-bold text-indigo-600">
                     {paper.venue}
                   </p>
                 </div>
@@ -102,16 +102,16 @@ export default function ResearchTab() {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={() => setActiveModalPaper(paper)}
-                    className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition-colors"
+                    className="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 transition-colors"
                   >
-                    <Eye className="w-3.5 h-3.5 text-indigo-400" />
+                    <Eye className="w-3.5 h-3.5 text-indigo-600" />
                     <span>Abstract</span>
                   </button>
                   <a
                     href={paper.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-colors"
+                    className="p-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-600 text-indigo-600 hover:text-white transition-colors border border-indigo-100"
                     title="Open Publication Link"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -119,16 +119,16 @@ export default function ResearchTab() {
                 </div>
               </div>
 
-              <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+              <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                 {paper.abstract}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800/80">
+              <div className="flex flex-wrap gap-1 pt-1 border-t border-slate-100">
                 {paper.tags.map((tag, tIdx) => (
                   <span
                     key={tIdx}
-                    className="text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-slate-900 text-slate-300 border border-slate-800"
+                    className="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200"
                   >
                     #{tag}
                   </span>
@@ -141,36 +141,36 @@ export default function ResearchTab() {
 
       {/* Abstract Modal Viewer */}
       {activeModalPaper && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
-          <div className="glass-card rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-slate-700 space-y-6 relative shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn">
+          <div className="clean-card rounded-2xl max-w-xl w-full p-6 bg-white space-y-4 relative shadow-xl">
             <button
               onClick={() => setActiveModalPaper(null)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full bg-slate-800"
+              className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-900 rounded-full bg-slate-100"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase text-indigo-400 tracking-wider">
+            <div className="space-y-1">
+              <span className="text-xs font-bold uppercase text-indigo-600 tracking-wider">
                 {activeModalPaper.venue}
               </span>
-              <h3 className="text-xl font-bold text-slate-100">
+              <h3 className="text-lg font-bold text-slate-900">
                 {activeModalPaper.title}
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Author: Girisha Malni N | Status: [{activeModalPaper.status}]
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 leading-relaxed space-y-2 max-h-60 overflow-y-auto">
-              <h4 className="font-bold text-slate-200">Abstract Summary:</h4>
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-1.5 max-h-60 overflow-y-auto">
+              <h4 className="font-bold text-slate-900">Abstract Summary:</h4>
               <p>{activeModalPaper.abstract}</p>
             </div>
 
-            <div className="flex justify-end space-x-3 pt-2">
+            <div className="flex justify-end space-x-2 pt-2">
               <button
                 onClick={() => setActiveModalPaper(null)}
-                className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold"
+                className="px-3.5 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200"
               >
                 Close
               </button>
@@ -178,9 +178,9 @@ export default function ResearchTab() {
                 href={activeModalPaper.link}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold"
+                className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold"
               >
-                <span>View Full Paper / Scholar</span>
+                <span>View Full Paper</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
