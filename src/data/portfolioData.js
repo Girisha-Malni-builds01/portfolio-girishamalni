@@ -176,6 +176,7 @@ export const researchPapers = [
     status: "Published",
     type: "Conference",
     link: "https://ieeexplore.ieee.org/abstract/document/10986878",
+    publisherLogo: "/images/logos/ieee_austria_logo.png",
     abstract: "Proposes a novel multimodal Retrieval-Augmented Generation (RAG) framework tailored for parsing heterogenous sustainability reports containing tabular, textual, and visual emissions charts with high fidelity.",
     tags: ["Multimodal RAG", "ESG Intelligence", "IEEE Conference", "LLMs"]
   },
@@ -187,6 +188,7 @@ export const researchPapers = [
     status: "Published",
     type: "Conference",
     link: "https://ieeexplore.ieee.org/abstract/document/11390981/",
+    publisherLogo: "/images/logos/ieee_mangalore_logo.png",
     abstract: "Introduces ECOSAUR, an AI-driven framework that enables consumers and institutions to make data-backed eco-friendly purchasing decisions by scoring lifecycle carbon emissions.",
     tags: ["Sustainability", "AI Decision Support", "IEEE AIDE"]
   },
@@ -198,6 +200,7 @@ export const researchPapers = [
     status: "Presented",
     type: "Conference",
     link: null,
+    publisherLogo: "/images/logos/iuprai_springer_logo.png",
     abstract: "Presents a computer vision model that analyzes spatial ownership boundaries and intent breakdowns in complex multi-object human interaction scenes.",
     tags: ["Computer Vision", "Intent Detection", "Springer", "Scene Analysis"]
   },
@@ -209,6 +212,7 @@ export const researchPapers = [
     status: "Accepted",
     type: "Conference",
     link: null,
+    publisherLogo: "/images/logos/springer_trento_logo.png",
     abstract: "Leverages Quantum Fisher Information Matrix (QFIM) to guide prototype learning in variational quantum circuits, achieving explainable classification on high-dimensional quantum states.",
     tags: ["Quantum ML", "Qiskit", "Explainable AI", "QUANCOM", "Springer"]
   },
@@ -220,6 +224,7 @@ export const researchPapers = [
     status: "Under Review",
     type: "Journal",
     link: null,
+    publisherLogo: "/images/logos/elsevier_logo.png",
     abstract: "Presents a reasoning-centric retrieval paradigm that optimizes knowledge residency and vector lookup strategies for large-scale enterprise ESG intelligence applications.",
     tags: ["Elsevier EAAI", "Journal Paper", "Knowledge Residency", "RAG Optimization"]
   }
