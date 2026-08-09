@@ -106,7 +106,7 @@ export default function App() {
           </div>
 
           {/* Clean Top Navigation Tabs */}
-          <nav className="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto py-1">
+          <nav className="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto py-1.5 no-scrollbar max-w-full">
             {topNavTabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -114,7 +114,7 @@ export default function App() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0 ${
+                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0 active:scale-95 touch-manipulation ${
                     isActive
                       ? 'bg-slate-900 text-white shadow-xs font-bold'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -305,43 +305,6 @@ export default function App() {
 
                 </div>
 
-                {/* INSTITUTIONAL AFFILIATIONS & RECOGNITIONS LOGO SHOWCASE */}
-                <div className="bg-white rounded-2xl border border-slate-200/90 p-5 space-y-4 shadow-2xs">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center space-x-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-                        <span>Affiliations, Fellowships & Awarding Institutions</span>
-                      </h3>
-                      <p className="text-[11px] text-slate-500 mt-0.5">
-                        Research partnerships, international internships, and national awards
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {affiliationsLogos.map((item, idx) => (
-                      <div 
-                        key={idx} 
-                        className="bg-slate-50/70 hover:bg-white hover:shadow-xs border border-slate-200/80 rounded-xl p-3 flex flex-col items-center justify-center text-center space-y-2 transition-all duration-300 group"
-                      >
-                        <div className="w-12 h-12 bg-white rounded-lg p-1.5 border border-slate-200/60 shadow-2xs flex items-center justify-center group-hover:scale-105 transition-transform">
-                          <img 
-                            src={item.logo} 
-                            alt={item.name} 
-                            className="max-w-full max-h-full object-contain"
-                          />
-                        </div>
-                        <div className="space-y-0.5">
-                          <h4 className="text-[11px] font-bold text-slate-900 leading-tight">{item.name}</h4>
-                          <span className="text-[9px] font-semibold text-indigo-600 block">{item.category}</span>
-                          <span className="text-[9px] text-slate-400 block">{item.sub}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Quick Highlights Summary Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div 
@@ -391,11 +354,11 @@ export default function App() {
 
                 <div className="space-y-4">
                   {experiences.map((exp, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border border-slate-200/90 p-5 space-y-3 shadow-2xs">
-                      <div className="flex flex-wrap items-start justify-between gap-3">
-                        <div className="flex items-start space-x-3">
+                    <div key={idx} className="bg-white rounded-xl border border-slate-200/90 p-4 sm:p-5 space-y-3 shadow-2xs">
+                      <div className="flex flex-col sm:flex-row items-start justify-between gap-3">
+                        <div className="flex items-center sm:items-start space-x-3.5">
                           {exp.logo && (
-                            <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0 shadow-2xs">
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border border-slate-200/90 p-2 flex items-center justify-center shrink-0 shadow-xs">
                               <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
                             </div>
                           )}
@@ -411,7 +374,7 @@ export default function App() {
                             </p>
                           </div>
                         </div>
-                        <span className="text-xs font-semibold text-slate-400">{exp.period}</span>
+                        <span className="text-xs font-semibold text-slate-400 self-start sm:self-auto">{exp.period}</span>
                       </div>
 
                       <ul className="space-y-1.5 text-xs text-slate-600 pl-4 list-disc">
@@ -590,9 +553,9 @@ export default function App() {
                     <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Honours & Competitions</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {honorsAndHackathons.map((item, idx) => (
-                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200/80 space-y-1 text-xs flex items-start space-x-3 shadow-2xs">
+                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200/80 space-y-1 text-xs flex items-center space-x-3.5 shadow-2xs">
                           {item.logo && (
-                            <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white border border-slate-200/90 p-1.5 flex items-center justify-center shrink-0 shadow-2xs">
                               <img src={item.logo} alt={item.org} className="max-w-full max-h-full object-contain" />
                             </div>
                           )}
