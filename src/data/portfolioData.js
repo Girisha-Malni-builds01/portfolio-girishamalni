@@ -46,6 +46,51 @@ export const personalInfo = {
   }
 };
 
+export const affiliationsLogos = [
+  {
+    name: "Carleton University",
+    sub: "Ottawa, Canada",
+    logo: "/images/logos/carleton_logo.png",
+    category: "Research Internship"
+  },
+  {
+    name: "ACM India Council",
+    sub: "National Chapter",
+    logo: "/images/logos/acm_india_logo.png",
+    category: "Internship & 1st Prize Winner"
+  },
+  {
+    name: "DitchCarbon",
+    sub: "Berlin, Germany",
+    logo: "/images/logos/ditchcarbon_logo.png",
+    category: "AI Developer Internship"
+  },
+  {
+    name: "Thiagarajar College of Eng.",
+    sub: "TCE Madurai",
+    logo: "/images/logos/tce_logo.png",
+    category: "Best Paper Winner & Runner-up"
+  },
+  {
+    name: "Amazon ML Challenge",
+    sub: "Amazon India",
+    logo: "/images/logos/amazon_ml_logo.png",
+    category: "Top 7.6%AIR 1747"
+  },
+  {
+    name: "TATA Group",
+    sub: "National Essay Contest",
+    logo: "/images/logos/tata_logo.png",
+    category: "Gold Medalist"
+  },
+  {
+    name: "DST INSPIRE",
+    sub: "Govt. of India",
+    logo: "/images/logos/inspire_logo.png",
+    category: "National Fellowship"
+  }
+];
+
 export const experiences = [
   {
     role: "AI Developer",
@@ -53,6 +98,7 @@ export const experiences = [
     location: "Berlin, Germany",
     period: "Dec 2025 – Jan 2026",
     badge: "International Remote Internship",
+    logo: "/images/logos/ditchcarbon_logo.png",
     highlights: [
       "Built an advanced Retrieval-Augmented Generation (RAG) pipeline using LlamaIndex for chunking unstructured PDF documents.",
       "Created vector embeddings using OpenAI text-embedding-3-small for high-precision semantic similarity retrieval.",
@@ -66,6 +112,7 @@ export const experiences = [
     location: "Ottawa, Canada",
     period: "Feb 2025 – Jul 2025",
     badge: "International Research Internship",
+    logo: "/images/logos/carleton_logo.png",
     highlights: [
       "Developed an end-to-end ESG analytics pipeline utilizing RAG architectures and Qdrant vector database.",
       "Implemented discourse graphs and HyperRAG algorithms for large-scale corporate sustainability report analysis.",
@@ -79,6 +126,7 @@ export const experiences = [
     location: "Himachal Pradesh, India",
     period: "Jun 2025",
     badge: "ACM Cohort Internship",
+    logo: "/images/logos/acm_india_logo.png",
     highlights: [
       "Participated in intensive advanced cohorts organized by ACM India Chapter at Jaypee University of Information Technology.",
       "Focused on theoretical computer science, quantum algorithms, variational quantum circuits, and emerging computing architectures."
@@ -91,6 +139,7 @@ export const experiences = [
     location: "Tamil Nadu, India",
     period: "Apr 2025 – May 2025",
     badge: "Industry AI Internship",
+    logo: null,
     highlights: [
       "Contributed to digital marketing workflow automation by engineering autonomous Python scripts.",
       "Orchestrated multi-agent crews using CrewAI for search engine optimization (SEO) automation and content strategy generation."
@@ -201,6 +250,7 @@ export const honorsAndHackathons = [
     award: "Special Prize (4th Place / 90 Teams)",
     year: "Mar 2026",
     org: "ACM Student Chapter, KARE",
+    logo: "/images/logos/acm_india_logo.png",
     desc: "Engineered an AI agent prototype for autonomous environmental compliance within 36 hackathon hours."
   },
   {
@@ -208,6 +258,7 @@ export const honorsAndHackathons = [
     award: "First Prize Best Paper",
     year: "Mar 2026",
     org: "Paradigm 2026, Thiagarajar College of Engineering (TCE)",
+    logo: "/images/logos/tce_logo.png",
     desc: "Awarded Best Paper for curvature-optimized LLM quantization and prompt retrieval optimization."
   },
   {
@@ -215,6 +266,7 @@ export const honorsAndHackathons = [
     award: "First Prize Winner",
     year: "2025",
     org: "ACM India National Chapter",
+    logo: "/images/logos/acm_india_logo.png",
     desc: "Won 1st Place in the national poster presentation for innovative RAG architectures in sustainability."
   },
   {
@@ -222,6 +274,7 @@ export const honorsAndHackathons = [
     award: "AIR 1747 / 23,000 Teams (Top 7.6%)",
     year: "Oct 2025",
     org: "Amazon India",
+    logo: "/images/logos/amazon_ml_logo.png",
     desc: "Ranked in top percentile nationally out of 23,000 participating student developer teams."
   },
   {
@@ -229,6 +282,7 @@ export const honorsAndHackathons = [
     award: "Second Prize",
     year: "2025",
     org: "Thiagarajar College of Engineering, Madurai",
+    logo: "/images/logos/tce_logo.png",
     desc: "Built a real-time web application for automated ESG benchmarking."
   },
   {
@@ -236,6 +290,7 @@ export const honorsAndHackathons = [
     award: "Gold Medalist",
     year: "2020",
     org: "TATA Group",
+    logo: "/images/logos/tata_logo.png",
     desc: "National level recognition for essay writing and youth leadership."
   },
   {
@@ -243,6 +298,7 @@ export const honorsAndHackathons = [
     award: "National Fellowship",
     year: "2019 – 2020",
     org: "Department of Science & Technology (DST), Govt of India",
+    logo: "/images/logos/inspire_logo.png",
     desc: "Prestigious DST fellowship awarded for early scientific innovation project."
   }
 ];
@@ -255,7 +311,7 @@ export const mediumBlogs = [
     url: "https://medium.com/illumination/white-nights-and-brief-connections-86ad6cd647e1",
     date: "Jun 24",
     readTime: "8 min read",
-    thumbnail: "/images/blog_carnatic.png",
+    thumbnail: "/images/blog_whitenights_thumb.png",
     tags: ["ILLUMINATION", "Essay", "Relationships", "Writing"]
   },
   {
@@ -275,7 +331,7 @@ export const mediumBlogs = [
     url: "https://medium.com/@23csec07.ngirishamalni/the-existentialism-of-june-4b31927b1045",
     date: "Jun 1",
     readTime: "4 min read",
-    thumbnail: "/images/travel_landscape.png",
+    thumbnail: "/images/blog_june_thumb.png",
     tags: ["Mindset", "Reflections", "Existentialism", "June"]
   },
   {
@@ -285,7 +341,7 @@ export const mediumBlogs = [
     url: "https://medium.com/@23csec07.ngirishamalni/the-art-of-zoning-out-6cf5e322a191",
     date: "4d ago",
     readTime: "5 min read",
-    thumbnail: "/images/blog_rag.png",
+    thumbnail: "/images/blog_zoningout_thumb.png",
     tags: ["Travel", "Stillness", "Mindfulness", "Stories"]
   }
 ];
