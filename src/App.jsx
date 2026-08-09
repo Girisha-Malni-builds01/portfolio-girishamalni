@@ -238,29 +238,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Sidebar Tab Shortcuts in Sentence Case */}
-            <div className="pt-3 space-y-1.5 text-xs text-slate-600 font-semibold border-t border-slate-200/80">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Navigation Sections</span>
-              <div>
-                <button onClick={() => setActiveTab('about')} className={`hover:text-slate-900 transition-colors ${activeTab === 'about' ? 'text-indigo-600 font-bold' : ''}`}>About Me</button>
-              </div>
-              <div>
-                <button onClick={() => setActiveTab('internships')} className={`hover:text-slate-900 transition-colors ${activeTab === 'internships' ? 'text-indigo-600 font-bold' : ''}`}>Work & Internships</button>
-              </div>
-              <div>
-                <button onClick={() => setActiveTab('research')} className={`hover:text-slate-900 transition-colors ${activeTab === 'research' ? 'text-indigo-600 font-bold' : ''}`}>Research & Papers</button>
-              </div>
-              <div>
-                <button onClick={() => setActiveTab('medium')} className={`hover:text-slate-900 transition-colors ${activeTab === 'medium' ? 'text-indigo-600 font-bold' : ''}`}>Medium Stories</button>
-              </div>
-              <div>
-                <button onClick={() => setActiveTab('projects')} className={`hover:text-slate-900 transition-colors ${activeTab === 'projects' ? 'text-indigo-600 font-bold' : ''}`}>Projects & Code</button>
-              </div>
-              <div>
-                <button onClick={() => setActiveTab('skills')} className={`hover:text-slate-900 transition-colors ${activeTab === 'skills' ? 'text-indigo-600 font-bold' : ''}`}>Skills & Passions</button>
-              </div>
-            </div>
-
           </div>
 
           {/* RIGHT COLUMN: TAB-BASED CONTENT AREA */}
@@ -354,27 +331,27 @@ export default function App() {
 
                 <div className="space-y-4">
                   {experiences.map((exp, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border border-slate-200/90 p-4 sm:p-5 space-y-3 shadow-2xs">
-                      <div className="flex flex-col sm:flex-row items-start justify-between gap-3">
-                        <div className="flex items-center sm:items-start space-x-3.5">
+                    <div key={idx} className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 space-y-4 shadow-2xs">
+                      <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                           {exp.logo && (
-                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border border-slate-200/90 p-2 flex items-center justify-center shrink-0 shadow-xs">
+                            <div className="w-20 h-20 sm:w-28 sm:h-24 rounded-2xl bg-white border border-slate-200/90 p-3 flex items-center justify-center shrink-0 shadow-xs hover:scale-102 transition-transform">
                               <img src={exp.logo} alt={exp.company} className="max-w-full max-h-full object-contain" />
                             </div>
                           )}
-                          <div>
+                          <div className="space-y-1">
                             <div className="flex flex-wrap items-center gap-2">
-                              <h3 className="text-sm sm:text-base font-bold text-slate-900">{exp.role}</h3>
-                              <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
+                              <h3 className="text-base sm:text-lg font-bold text-slate-900">{exp.role}</h3>
+                              <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
                                 {exp.badge}
                               </span>
                             </div>
-                            <p className="text-xs font-bold text-indigo-600 mt-0.5">
+                            <p className="text-xs sm:text-sm font-bold text-indigo-600">
                               {exp.company} • {exp.location}
                             </p>
                           </div>
                         </div>
-                        <span className="text-xs font-semibold text-slate-400 self-start sm:self-auto">{exp.period}</span>
+                        <span className="text-xs font-semibold text-slate-400 self-start sm:self-auto shrink-0">{exp.period}</span>
                       </div>
 
                       <ul className="space-y-1.5 text-xs text-slate-600 pl-4 list-disc">
